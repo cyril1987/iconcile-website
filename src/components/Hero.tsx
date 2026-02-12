@@ -84,7 +84,7 @@ export default function Hero() {
 
       {/* Main content — animates in after intro */}
       <motion.div
-        className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-16 w-full"
+        className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 sm:pt-28 pb-12 sm:pb-16 w-full"
         style={{ y: textY, opacity, scale, filter: filterStr }}
       >
         <div className="max-w-4xl mx-auto text-center">
@@ -109,7 +109,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={introComplete ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-[1.05] mb-4 tracking-tight"
+            className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-[1.05] mb-4 tracking-tight"
           >
             <span className="block text-foreground">Elevating Aviation</span>
             <span className="block mt-1 h-[1.15em]">

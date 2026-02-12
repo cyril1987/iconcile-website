@@ -42,9 +42,11 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <body
-        className={`${inter.variable} ${jetbrainsMono.variable} antialiased`}
+        className={`${inter.variable} ${jetbrainsMono.variable} antialiased overflow-x-hidden`}
       >
-        {children}
+        <div className="relative w-full min-h-screen">
+          {children}
+        </div>
       </body>
     </html>
   );

@@ -2,8 +2,9 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
-import Image from "next/image";
 import { Rocket, Eye, Users, Linkedin } from "lucide-react";
+
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 import { RevealText } from "./animations/TextReveal";
 import TiltCard from "./animations/TiltCard";
 
@@ -76,7 +77,7 @@ export default function About() {
           <p className="text-muted max-w-2xl mx-auto">Led by seasoned professionals combining deep aviation expertise with technology innovation.</p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
           {team.map((member, i) => (
             <TeamCard key={member.name} member={member} index={i} isInView={isInView} />
           ))}
@@ -132,12 +133,11 @@ function TeamCard({
             animate={{ scale: isHovered ? 1.05 : 1 }}
             transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
           >
-            <Image
-              src={member.image}
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={`${basePath}${member.image}`}
               alt={member.name}
-              fill
-              className="object-cover"
-              sizes="(max-width: 768px) 100vw, 33vw"
+              className="w-full h-full object-cover"
             />
           </motion.div>
 

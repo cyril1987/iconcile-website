@@ -2,8 +2,9 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import Image from "next/image";
 import { Quote } from "lucide-react";
+
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 import Marquee from "./animations/Marquee";
 import { RevealText } from "./animations/TextReveal";
 import TiltCard from "./animations/TiltCard";
@@ -39,16 +40,13 @@ export default function Clients() {
         <motion.div initial={{ opacity: 0 }} animate={isInView ? { opacity: 1 } : {}} transition={{ duration: 0.6, delay: 0.3 }} className="mb-20">
           <Marquee speed={25}>
             {clients.map((client) => (
-              <div key={client.name} className="flex items-center justify-center px-10 py-6 bg-surface border border-border rounded-xl hover:border-primary/20 transition-colors min-w-[220px] h-24 flex-shrink-0">
-                <div className="relative h-10 w-36">
-                  <Image
-                    src={client.logo}
-                    alt={client.name}
-                    fill
-                    className="object-contain opacity-70 hover:opacity-100 transition-opacity"
-                    sizes="144px"
-                  />
-                </div>
+              <div key={client.name} className="flex items-center justify-center px-8 sm:px-10 py-6 bg-surface border border-border rounded-xl hover:border-primary/20 transition-colors min-w-[180px] sm:min-w-[220px] h-20 sm:h-24 flex-shrink-0">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={`${basePath}${client.logo}`}
+                  alt={client.name}
+                  className="h-8 sm:h-10 w-auto max-w-[120px] sm:max-w-[144px] object-contain opacity-70 hover:opacity-100 transition-opacity"
+                />
               </div>
             ))}
           </Marquee>

@@ -16,14 +16,22 @@
   --font-mono: var(--font-geist-mono);
 }
 
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
 body {
   background: var(--color-background);
   color: var(--color-foreground);
   font-family: var(--font-sans), system-ui, sans-serif;
+  min-width: 320px;
+  overflow-x: hidden;
 }
 
-html {
-  scroll-behavior: smooth;
+/* Lock scroll when mobile menu is open */
+body.menu-open {
+  overflow: hidden;
 }
 
 /* Gradient text utility */
